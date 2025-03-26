@@ -1,3 +1,21 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCjg2XNdAbd3kYV45cNSkXW4a7-uJyGgK4",
+  authDomain: "ecoevents-91ece.firebaseapp.com",
+  projectId: "ecoevents-91ece",
+  storageBucket: "ecoevents-91ece.firebasestorage.app",
+  messagingSenderId: "1053515070127",
+  appId: "1:1053515070127:web:b4fc56bd6c9c438361b25a"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
