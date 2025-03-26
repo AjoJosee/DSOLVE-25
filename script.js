@@ -147,4 +147,172 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize login state
     updateLoginState(isLoggedIn());
-}); 
+
+    // Initialize all components
+    initializeComponents();
+});
+
+// Initialize all components
+function initializeComponents() {
+    // Handle responsive navigation
+    handleResponsiveNav();
+
+    // Handle form submissions
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Add your login logic here
+            console.log('Login attempt:', { email, password });
+            
+            // Close modal
+            const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+            loginModal.hide();
+        });
+    }
+
+    const registerForm = document.getElementById('registerForm');
+    if (registerForm) {
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            // Add your registration logic here
+            console.log('Registration attempt:', { name, email, password });
+            
+            // Close modal
+            const registerModal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
+            registerModal.hide();
+        });
+    }
+
+    // Event search functionality
+    const eventSearch = document.getElementById('eventSearch');
+    if (eventSearch) {
+        eventSearch.addEventListener('input', debounce(function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            // Add your search logic here
+            console.log('Searching for:', searchTerm);
+        }, 300));
+    }
+}
+
+// Utility function for debouncing
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Handle event registration
+function registerForEvent(eventId) {
+    // Check if user is logged in
+    if (!isUserLoggedIn()) {
+        // Show login modal
+        const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+        loginModal.show();
+        return;
+    }
+
+    // Add your event registration logic here
+    console.log('Registering for event:', eventId);
+}
+
+// Check if user is logged in
+function isUserLoggedIn() {
+    // Add your authentication check logic here
+    return false;
+}
+
+// Handle filter changes
+function handleFilterChange() {
+    const eventType = document.getElementById('eventTypeFilter').value;
+    const dateRange = document.getElementById('dateRangeFilter').value;
+    const distance = document.getElementById('distanceFilter').value;
+
+    // Add your filter logic here
+    console.log('Filters changed:', { eventType, dateRange, distance });
+}
+
+// Handle pagination
+function handlePagination(page) {
+    // Add your pagination logic here
+    console.log('Navigating to page:', page);
+}
+
+// Show loading state
+function showLoading(element) {
+    element.classList.add('loading');
+}
+
+// Hide loading state
+function hideLoading(element) {
+    element.classList.remove('loading');
+}
+
+// Show error message
+function showError(message) {
+    // Add your error display logic here
+    console.error(message);
+}
+
+// Show success message
+function showSuccess(message) {
+    // Add your success display logic here
+    console.log(message);
+}
+
+// Format date
+function formatDate(dateString) {
+    const options = { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    };
+    
+    return new Date(dateString).toLocaleDateString('en-US', options);
+}
+
+// Format distance
+function formatDistance(meters) {
+    if (meters < 1000) {
+        return `${Math.round(meters)}m`;
+    }
+    return `${(meters / 1000).toFixed(1)}km`;
+}
+
+// Handle responsive navigation
+function handleResponsiveNav() {
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+    }
+}
+
+// Call initialization when DOM is loaded
+document.addEventListener('DOMContentLoaded', initializeComponents); 

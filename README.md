@@ -1,4 +1,4 @@
-# 🚀 DSolve-2025 Hackathon
+# EcoEvents - Sustainable Community Platform
 
 ## 👥 Team Information
 **Team Name:** 0xDEADBEEF 
@@ -64,4 +64,4 @@ We welcome contributions! Here are some ways you can help:
 ## Acknowledgments
 - We did most of the code in [cursor](https://www.cursor.com/)
 - [Library/framework documentation]
-- [Team members/mentors]
+- [Team members/mentors] 
