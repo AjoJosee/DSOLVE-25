@@ -4,15 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Events - EcoEvents</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><i class="fas fa-leaf"></i> EcoEvents</a>
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-leaf"></i> EcoEvents
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -46,7 +53,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Search events...">
+                        <input type="text" class="form-control" placeholder="Search events..." id="eventSearch">
                         <button class="btn btn-success" type="button">Search</button>
                     </div>
                 </div>
@@ -57,185 +64,76 @@
     <!-- Events Content -->
     <main class="py-5">
         <div class="container">
-            <!-- Filters -->
+            <!-- Map and Filters Section -->
             <div class="row mb-4">
-                <div class="col-md-3">
-                    <select class="form-select">
-                        <option selected>Event Type</option>
-                        <option>Tree Planting</option>
-                        <option>Beach Cleanup</option>
-                        <option>Workshop</option>
-                        <option>Recycling Drive</option>
-                    </select>
+                <!-- Map Section -->
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body p-0">
+                            <div id="map" style="height: 400px;"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <select class="form-select">
-                        <option selected>Date Range</option>
-                        <option>This Week</option>
-                        <option>This Month</option>
-                        <option>Next Month</option>
-                        <option>All Upcoming</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select class="form-select">
-                        <option selected>Location</option>
-                        <option>Near Me</option>
-                        <option>All Locations</option>
-                        <option>Virtual Events</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select class="form-select">
-                        <option selected>Difficulty Level</option>
-                        <option>Beginner</option>
-                        <option>Intermediate</option>
-                        <option>Advanced</option>
-                    </select>
+                <!-- Filters and Nearby Events -->
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="mb-0">Filters</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label class="form-label">Event Type</label>
+                                <select class="form-select" id="eventTypeFilter">
+                                    <option value="">All Types</option>
+                                    <option value="cleanup">Cleanup Events</option>
+                                    <option value="planting">Tree Planting</option>
+                                    <option value="workshop">Workshops</option>
+                                    <option value="education">Education</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Date Range</label>
+                                <select class="form-select" id="dateRangeFilter">
+                                    <option value="">All Dates</option>
+                                    <option value="week">This Week</option>
+                                    <option value="month">This Month</option>
+                                    <option value="nextMonth">Next Month</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Distance</label>
+                                <select class="form-select" id="distanceFilter">
+                                    <option value="5">Within 5 km</option>
+                                    <option value="10">Within 10 km</option>
+                                    <option value="25">Within 25 km</option>
+                                    <option value="50">Within 50 km</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Nearby Events List -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Nearby Events</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="nearbyEventsList">
+                                <!-- Events will be dynamically loaded here -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Events Grid -->
-            <div class="row">
-                <!-- Event 1 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Tree Planting">
-                        <div class="card-body">
-                            <span class="badge bg-success mb-2">Tree Planting</span>
-                            <h5 class="card-title">Community Tree Planting</h5>
-                            <p class="card-text">Join us for a day of tree planting and environmental education.</p>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-calendar"></i> June 15, 2024</li>
-                                <li><i class="fas fa-map-marker-alt"></i> Central Park</li>
-                                <li><i class="fas fa-users"></i> 20 spots left</li>
-                            </ul>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <button class="btn btn-success">Register</button>
-                                <span class="text-muted">Points: 100</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Event 2 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Beach Cleanup">
-                        <div class="card-body">
-                            <span class="badge bg-success mb-2">Beach Cleanup</span>
-                            <h5 class="card-title">Beach Cleanup Drive</h5>
-                            <p class="card-text">Help us keep our beaches clean and protect marine life.</p>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-calendar"></i> June 20, 2024</li>
-                                <li><i class="fas fa-map-marker-alt"></i> Beachfront Park</li>
-                                <li><i class="fas fa-users"></i> 15 spots left</li>
-                            </ul>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <button class="btn btn-success">Register</button>
-                                <span class="text-muted">Points: 150</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Event 3 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Workshop">
-                        <div class="card-body">
-                            <span class="badge bg-success mb-2">Workshop</span>
-                            <h5 class="card-title">Sustainable Living Workshop</h5>
-                            <p class="card-text">Learn practical tips for reducing your carbon footprint.</p>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-calendar"></i> June 25, 2024</li>
-                                <li><i class="fas fa-map-marker-alt"></i> Community Center</li>
-                                <li><i class="fas fa-users"></i> 30 spots left</li>
-                            </ul>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <button class="btn btn-success">Register</button>
-                                <span class="text-muted">Points: 80</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Event 4 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Recycling">
-                        <div class="card-body">
-                            <span class="badge bg-success mb-2">Recycling Drive</span>
-                            <h5 class="card-title">E-Waste Recycling Event</h5>
-                            <p class="card-text">Properly dispose of electronic waste and learn about recycling.</p>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-calendar"></i> July 1, 2024</li>
-                                <li><i class="fas fa-map-marker-alt"></i> Recycling Center</li>
-                                <li><i class="fas fa-users"></i> Unlimited spots</li>
-                            </ul>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <button class="btn btn-success">Register</button>
-                                <span class="text-muted">Points: 120</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Event 5 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Garden">
-                        <div class="card-body">
-                            <span class="badge bg-success mb-2">Gardening</span>
-                            <h5 class="card-title">Community Garden Workshop</h5>
-                            <p class="card-text">Learn to grow your own food sustainably.</p>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-calendar"></i> July 5, 2024</li>
-                                <li><i class="fas fa-map-marker-alt"></i> Community Garden</li>
-                                <li><i class="fas fa-users"></i> 25 spots left</li>
-                            </ul>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <button class="btn btn-success">Register</button>
-                                <span class="text-muted">Points: 90</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Event 6 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Bike">
-                        <div class="card-body">
-                            <span class="badge bg-success mb-2">Transportation</span>
-                            <h5 class="card-title">Bike to Work Day</h5>
-                            <p class="card-text">Join the community in promoting sustainable transportation.</p>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-calendar"></i> July 10, 2024</li>
-                                <li><i class="fas fa-map-marker-alt"></i> City Center</li>
-                                <li><i class="fas fa-users"></i> Unlimited spots</li>
-                            </ul>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <button class="btn btn-success">Register</button>
-                                <span class="text-muted">Points: 70</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="row" id="eventsGrid">
+                <!-- Events will be dynamically loaded here -->
             </div>
 
             <!-- Pagination -->
             <nav aria-label="Page navigation" class="mt-4">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                    </li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
+                <ul class="pagination justify-content-center" id="eventsPagination">
+                    <!-- Pagination will be dynamically loaded here -->
                 </ul>
             </nav>
         </div>
@@ -279,7 +177,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="loginForm">
                         <div class="mb-3">
                             <label for="loginEmail" class="form-label">Email address</label>
                             <input type="email" class="form-control" id="loginEmail" required>
@@ -288,7 +186,7 @@
                             <label for="loginPassword" class="form-label">Password</label>
                             <input type="password" class="form-control" id="loginPassword" required>
                         </div>
-                        <button type="submit" class="btn btn-success">Login</button>
+                        <button type="submit" class="btn btn-success w-100">Login</button>
                     </form>
                 </div>
             </div>
@@ -304,7 +202,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="registerForm">
                         <div class="mb-3">
                             <label for="registerName" class="form-label">Full Name</label>
                             <input type="text" class="form-control" id="registerName" required>
@@ -321,14 +219,18 @@
                             <label for="confirmPassword" class="form-label">Confirm Password</label>
                             <input type="password" class="form-control" id="confirmPassword" required>
                         </div>
-                        <button type="submit" class="btn btn-success">Register</button>
+                        <button type="submit" class="btn btn-success w-100">Register</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
     <script src="script.js"></script>
+    <!-- Maps Script -->
+    <script src="maps.js"></script>
 </body>
 </html> 
