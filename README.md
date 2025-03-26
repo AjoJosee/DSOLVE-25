@@ -62,6 +62,6 @@ We welcome contributions! Here are some ways you can help:
 
 
 ## Acknowledgments
-- We did most of the code in [cursor]cursor.com
+- We did most of the code in [cursor]https://www.cursor.com/
 - [Library/framework documentation]
 - [Team members/mentors]
