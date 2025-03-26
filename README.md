@@ -1,12 +1,12 @@
 # 🚀 DSolve-2025 Hackathon
 
 ## 👥 Team Information
-**Team Name:** [Your Creative Team Name]  
+**Team Name:** 0xDEADBEEF 
 
 **Team Members:**
-- Member 1 Name
-- [Member 1's Github ](https://github.com/username) - Role/Contribution
-- Member 2 Name
+- AJO JOSE
+- AjoJosee(https://github.com/AjoJosee) - Role/Contribution
+- JOHANN THOMAS
 - [Member 2's Github](https://github.com/username) - Role/Contribution
 
 ## 💡 Project Idea
