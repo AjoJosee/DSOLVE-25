@@ -1,12 +1,46 @@
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all components
+    initializeComponents();
+});
+
+// Initialize all components
+function initializeComponents() {
     // Initialize tooltips
+    initializeTooltips();
+    
+    // Handle responsive navigation
+    handleResponsiveNav();
+    
+    // Initialize smooth scrolling
+    initializeSmoothScroll();
+    
+    // Initialize form validation
+    initializeFormValidation();
+    
+    // Initialize scroll animations
+    initializeScrollAnimations();
+    
+    // Initialize event registration
+    initializeEventRegistration();
+    
+    // Initialize authentication
+    initializeAuth();
+    
+    // Initialize search functionality
+    initializeSearch();
+}
+
+// Initialize tooltips
+function initializeTooltips() {
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
     });
+}
 
-    // Smooth scrolling for navigation links
+// Initialize smooth scrolling
+function initializeSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -19,8 +53,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+}
 
-    // Form validation
+// Initialize form validation
+function initializeFormValidation() {
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {
         form.addEventListener('submit', function(e) {
@@ -54,8 +90,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+}
 
-    // Scroll animation for sections
+// Initialize scroll animations
+function initializeScrollAnimations() {
     const sections = document.querySelectorAll('section');
     const observerOptions = {
         root: null,
@@ -75,8 +113,10 @@ document.addEventListener('DOMContentLoaded', function() {
     sections.forEach(section => {
         observer.observe(section);
     });
+}
 
-    // Event registration functionality
+// Initialize event registration
+function initializeEventRegistration() {
     const registerButtons = document.querySelectorAll('.btn-success');
     registerButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -97,67 +137,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+}
 
-    // Check if user is logged in (simulated)
-    function isLoggedIn() {
-        return localStorage.getItem('isLoggedIn') === 'true';
-    }
-
+// Initialize authentication
+function initializeAuth() {
     // Handle login form submission
-    const loginForm = document.querySelector('#loginModal form');
-    if (loginForm) {
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            localStorage.setItem('isLoggedIn', 'true');
-            const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
-            loginModal.hide();
-            
-            // Update UI to show logged-in state
-            updateLoginState(true);
-        });
-    }
-
-    // Handle register form submission
-    const registerForm = document.querySelector('#registerModal form');
-    if (registerForm) {
-        registerForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            localStorage.setItem('isLoggedIn', 'true');
-            const registerModal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
-            registerModal.hide();
-            
-            // Update UI to show logged-in state
-            updateLoginState(true);
-        });
-    }
-
-    // Update UI based on login state
-    function updateLoginState(isLoggedIn) {
-        const loginButton = document.querySelector('[data-bs-target="#loginModal"]');
-        const registerButton = document.querySelector('[data-bs-target="#registerModal"]');
-        
-        if (isLoggedIn) {
-            loginButton.textContent = 'Profile';
-            registerButton.style.display = 'none';
-        } else {
-            loginButton.textContent = 'Login';
-            registerButton.style.display = 'block';
-        }
-    }
-
-    // Initialize login state
-    updateLoginState(isLoggedIn());
-
-    // Initialize all components
-    initializeComponents();
-});
-
-// Initialize all components
-function initializeComponents() {
-    // Handle responsive navigation
-    handleResponsiveNav();
-
-    // Handle form submissions
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', function(e) {
@@ -171,9 +155,13 @@ function initializeComponents() {
             // Close modal
             const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
             loginModal.hide();
+            
+            // Update UI to show logged-in state
+            updateLoginState(true);
         });
     }
 
+    // Handle register form submission
     const registerForm = document.getElementById('registerForm');
     if (registerForm) {
         registerForm.addEventListener('submit', function(e) {
@@ -194,10 +182,18 @@ function initializeComponents() {
             // Close modal
             const registerModal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
             registerModal.hide();
+            
+            // Update UI to show logged-in state
+            updateLoginState(true);
         });
     }
 
-    // Event search functionality
+    // Initialize login state
+    updateLoginState(isLoggedIn());
+}
+
+// Initialize search functionality
+function initializeSearch() {
     const eventSearch = document.getElementById('eventSearch');
     if (eventSearch) {
         eventSearch.addEventListener('input', debounce(function(e) {
@@ -224,7 +220,7 @@ function debounce(func, wait) {
 // Handle event registration
 function registerForEvent(eventId) {
     // Check if user is logged in
-    if (!isUserLoggedIn()) {
+    if (!isLoggedIn()) {
         // Show login modal
         const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
         loginModal.show();
@@ -236,9 +232,22 @@ function registerForEvent(eventId) {
 }
 
 // Check if user is logged in
-function isUserLoggedIn() {
-    // Add your authentication check logic here
-    return false;
+function isLoggedIn() {
+    return localStorage.getItem('isLoggedIn') === 'true';
+}
+
+// Update UI based on login state
+function updateLoginState(isLoggedIn) {
+    const loginButton = document.querySelector('[data-bs-target="#loginModal"]');
+    const registerButton = document.querySelector('[data-bs-target="#registerModal"]');
+    
+    if (isLoggedIn) {
+        loginButton.textContent = 'Profile';
+        registerButton.style.display = 'none';
+    } else {
+        loginButton.textContent = 'Login';
+        registerButton.style.display = 'block';
+    }
 }
 
 // Handle filter changes
@@ -312,7 +321,4 @@ function handleResponsiveNav() {
             }
         });
     }
-}
-
-// Call initialization when DOM is loaded
-document.addEventListener('DOMContentLoaded', initializeComponents); 
+} 
