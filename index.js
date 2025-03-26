@@ -29,6 +29,9 @@ function initializeComponents() {
     
     // Initialize search functionality
     initializeSearch();
+    
+    // Initialize newsletter subscription
+    initializeNewsletter();
 }
 
 // Initialize tooltips
@@ -204,7 +207,124 @@ function initializeSearch() {
     }
 }
 
-// Utility function for debouncing
+// Initialize newsletter subscription
+function initializeNewsletter() {
+    const newsletterForms = document.querySelectorAll('form');
+    newsletterForms.forEach(form => {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const emailInput = form.querySelector('input[type="email"]');
+            if (!emailInput) return; // Skip if not a newsletter form
+            
+            const email = emailInput.value.trim();
+            
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showError('Please enter a valid email address');
+                return;
+            }
+            
+            // Show loading state
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = 'Subscribing...';
+            
+            try {
+                const response = await fetch('http://localhost:3000/api/newsletter/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showSuccess('Thank you for subscribing to our newsletter!');
+                    form.reset();
+                } else {
+                    showError(data.error || 'Failed to subscribe. Please try again.');
+                }
+            } catch (error) {
+                console.error('Newsletter subscription error:', error);
+                showError('An error occurred. Please try again later.');
+            } finally {
+                // Reset button state
+                submitButton.disabled = false;
+                submitButton.textContent = originalText;
+            }
+        });
+    });
+}
+
+// Show error message
+function showError(message) {
+    // Create error message element
+    const errorMessage = document.createElement('div');
+    errorMessage.className = 'alert alert-danger mt-3';
+    errorMessage.textContent = message;
+    
+    // Find the form that triggered the error
+    const form = document.querySelector('form');
+    if (form) {
+        // Remove any existing error messages
+        const existingError = form.querySelector('.alert-danger');
+        if (existingError) {
+            existingError.remove();
+        }
+        
+        // Add the new error message
+        form.appendChild(errorMessage);
+        
+        // Remove error message after 3 seconds
+        setTimeout(() => {
+            errorMessage.remove();
+        }, 3000);
+    }
+}
+
+// Show success message
+function showSuccess(message) {
+    // Create success message element
+    const successMessage = document.createElement('div');
+    successMessage.className = 'alert alert-success mt-3';
+    successMessage.textContent = message;
+    
+    // Find the form that triggered the success
+    const form = document.querySelector('form');
+    if (form) {
+        // Remove any existing success messages
+        const existingSuccess = form.querySelector('.alert-success');
+        if (existingSuccess) {
+            existingSuccess.remove();
+        }
+        
+        // Add the new success message
+        form.appendChild(successMessage);
+        
+        // Remove success message after 3 seconds
+        setTimeout(() => {
+            successMessage.remove();
+        }, 3000);
+    }
+}
+
+// Check if user is logged in
+function isLoggedIn() {
+    return localStorage.getItem('isLoggedIn') === 'true';
+}
+
+// Update login state in UI
+function updateLoginState(isLoggedIn) {
+    localStorage.setItem('isLoggedIn', isLoggedIn);
+    // Add your UI update logic here
+}
+
+// Debounce function for search
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -215,39 +335,6 @@ function debounce(func, wait) {
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
-}
-
-// Handle event registration
-function registerForEvent(eventId) {
-    // Check if user is logged in
-    if (!isLoggedIn()) {
-        // Show login modal
-        const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
-        loginModal.show();
-        return;
-    }
-
-    // Add your event registration logic here
-    console.log('Registering for event:', eventId);
-}
-
-// Check if user is logged in
-function isLoggedIn() {
-    return localStorage.getItem('isLoggedIn') === 'true';
-}
-
-// Update UI based on login state
-function updateLoginState(isLoggedIn) {
-    const loginButton = document.querySelector('[data-bs-target="#loginModal"]');
-    const registerButton = document.querySelector('[data-bs-target="#registerModal"]');
-    
-    if (isLoggedIn) {
-        loginButton.textContent = 'Profile';
-        registerButton.style.display = 'none';
-    } else {
-        loginButton.textContent = 'Login';
-        registerButton.style.display = 'block';
-    }
 }
 
 // Handle filter changes
@@ -274,18 +361,6 @@ function showLoading(element) {
 // Hide loading state
 function hideLoading(element) {
     element.classList.remove('loading');
-}
-
-// Show error message
-function showError(message) {
-    // Add your error display logic here
-    console.error(message);
-}
-
-// Show success message
-function showSuccess(message) {
-    // Add your success display logic here
-    console.log(message);
 }
 
 // Format date
