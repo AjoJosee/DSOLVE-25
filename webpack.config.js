@@ -1,12 +1,10 @@
-const path = require('path')
-const { fileURLToPath } = require('url')
+import path from 'path';
 
-module.exports = {
-    mode: 'development',
-    entry: './index.js',
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
-    },
-    watch: true
-}
+export default {
+  entry: './index.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve('dist'),
+  },
+  mode: 'development',
+};
