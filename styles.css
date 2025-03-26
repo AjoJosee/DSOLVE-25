@@ -79,43 +79,6 @@
     background: #27ae60;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .hero-section {
-        padding: 50px 0;
-    }
-    
-    .hero-section h1 {
-        font-size: 2rem;
-    }
-    
-    .card {
-        margin-bottom: 20px;
-    }
-}
-
-/* Animation Classes */
-.fade-in {
-    animation: fadeIn 0.5s ease-in;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Custom Form Styles */
-.form-control:focus {
-    border-color: #2ecc71;
-    box-shadow: 0 0 0 0.2rem rgba(46, 204, 113, 0.25);
-}
-
 /* Badge Styles */
 .badge-success {
     background-color: #2ecc71;
@@ -141,4 +104,320 @@ section {
 section.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 50px 0;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .card {
+        margin-bottom: 20px;
+    }
+}
+
+/* Custom Form Styles */
+.form-control:focus {
+    border-color: #2ecc71;
+    box-shadow: 0 0 0 0.2rem rgba(46, 204, 113, 0.25);
+}
+
+/* Global Styles */
+:root {
+    --primary-color: #a72835;
+    --secondary-color: #218838;
+    --light-bg: #f8f9fa;
+    --dark-bg: #343a40;
+    --text-light: #ffffff;
+    --text-dark: #212529;
+    --text-muted: #6c757d;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+/* Navigation */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand i {
+    margin-right: 8px;
+}
+
+/* Cards */
+.card-header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+}
+
+/* Leaderboard Styles */
+.reward-badge {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 5px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.text-bronze {
+    color: #cd7f32;
+}
+
+/* Community Styles */
+.list-group-item {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+
+/* Resource Categories */
+.resource-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Newsletter Section */
+.newsletter-section {
+    background-color: var(--light-bg);
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+}
+
+footer a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--primary-color);
+}
+
+/* Modal Styles */
+.modal-header .btn-close {
+    color: var(--text-light);
+}
+
+/* Form Styles */
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+}
+
+/* Progress Bar */
+.progress {
+    height: 8px;
+    border-radius: 4px;
+    background-color: #e9ecef;
+}
+
+.progress-bar {
+    background-color: var(--primary-color);
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+/* Badge Styles */
+.badge {
+    padding: 8px 12px;
+    font-weight: 500;
+}
+
+/* Table Styles */
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    border-top: none;
+    background-color: var(--light-bg);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(40, 167, 69, 0.05);
+}
+
+/* Section Headers */
+section h2 {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+section h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+/* Card Image Styles */
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* List Group Item Hover */
+.list-group-item-action:hover {
+    background-color: rgba(40, 167, 69, 0.05);
+}
+
+/* Custom Button Styles */
+.btn-outline-success {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-success:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+/* Icon Styles */
+.fa-3x {
+    margin-bottom: 1rem;
+}
+
+/* Card Body Padding */
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Section Spacing */
+section {
+    padding: 4rem 0;
+}
+
+/* Background Colors */
+.bg-light {
+    background-color: var(--light-bg) !important;
+}
+
+/* Text Colors */
+.text-success {
+    color: var(--primary-color) !important;
+}
+
+/* Link Hover Effects */
+a {
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+/* Form Group Spacing */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Custom Checkbox Style */
+.custom-checkbox {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+}
+
+.custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-checkbox .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 4px;
+}
+
+.custom-checkbox:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+    background-color: var(--primary-color);
+}
+
+.custom-checkbox .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.custom-checkbox .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
 } 

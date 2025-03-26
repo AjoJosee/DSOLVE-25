@@ -3,227 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoEvents - Sustainable Community Platform</title>
+    <title>EcoEvents - Sustainable Event Platform</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#"><i class="fas fa-leaf"></i> EcoEvents</a>
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-leaf"></i> EcoEvents
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#events">Events</a>
+                        <a class="nav-link" href="events.html">Events</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#leaderboard">Leaderboard</a>
+                        <a class="nav-link" href="leaderboard.html">Leaderboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#community">Community</a>
+                        <a class="nav-link" href="community.html">Community</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#resources">Resources</a>
+                        <a class="nav-link" href="resources.html">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
                     </li>
                 </ul>
-                <div class="d-flex">
-                    <button class="btn btn-light me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-                    <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
-                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero-section text-center py-5">
+    <section class="hero-section text-center">
         <div class="container">
-            <h1 class="display-4">Join the Green Revolution</h1>
-            <p class="lead">Discover eco-friendly events, earn rewards, and make a difference!</p>
-            <button class="btn btn-success btn-lg">Find Events Near You</button>
+            <h1 class="display-4 mb-4">Join the Green Revolution</h1>
+            <p class="lead mb-4">Discover eco-friendly events, connect with like-minded individuals, and make a positive impact on our planet.</p>
+            <a href="events.html" class="btn btn-success btn-lg">Explore Events</a>
         </div>
-    </header>
+    </section>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Events Section -->
-        <section id="events" class="py-5">
-            <div class="container">
-                <h2 class="text-center mb-4">Upcoming Eco-Events</h2>
-                <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Tree Planting">
-                            <div class="card-body">
-                                <h5 class="card-title">Community Tree Planting</h5>
-                                <p class="card-text">Join us for a day of tree planting and environmental education.</p>
-                                <p class="card-text"><small class="text-muted">Date: June 15, 2024</small></p>
-                                <button class="btn btn-success">Register</button>
+    <!-- Featured Events -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Featured Events</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Beach Cleanup">
+                        <div class="card-body">
+                            <h5 class="card-title">Beach Cleanup Drive</h5>
+                            <p class="card-text">Join us for a day of cleaning up our beautiful coastline and protecting marine life.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">Free</span>
+                                <a href="#" class="btn btn-outline-success">Learn More</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Cleanup">
-                            <div class="card-body">
-                                <h5 class="card-title">Beach Cleanup Drive</h5>
-                                <p class="card-text">Help us keep our beaches clean and protect marine life.</p>
-                                <p class="card-text"><small class="text-muted">Date: June 20, 2024</small></p>
-                                <button class="btn btn-success">Register</button>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Tree Planting">
+                        <div class="card-body">
+                            <h5 class="card-title">Tree Planting Workshop</h5>
+                            <p class="card-text">Learn about sustainable forestry and help us plant trees in our community park.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">$10</span>
+                                <a href="#" class="btn btn-outline-success">Learn More</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Workshop">
-                            <div class="card-body">
-                                <h5 class="card-title">Sustainable Living Workshop</h5>
-                                <p class="card-text">Learn practical tips for reducing your carbon footprint.</p>
-                                <p class="card-text"><small class="text-muted">Date: June 25, 2024</small></p>
-                                <button class="btn btn-success">Register</button>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Recycling Workshop">
+                        <div class="card-body">
+                            <h5 class="card-title">Recycling Workshop</h5>
+                            <p class="card-text">Master the art of recycling and learn how to reduce your carbon footprint.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success">$15</span>
+                                <a href="#" class="btn btn-outline-success">Learn More</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Leaderboard Section -->
-        <section id="leaderboard" class="py-5 bg-light">
-            <div class="container">
-                <h2 class="text-center mb-4">Monthly Leaderboard</h2>
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Rank</th>
-                                <th>User</th>
-                                <th>Points</th>
-                                <th>Events Attended</th>
-                                <th>Rewards</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><i class="fas fa-trophy text-warning"></i> 1</td>
-                                <td>John Doe</td>
-                                <td>2500</td>
-                                <td>12</td>
-                                <td>$500</td>
-                            </tr>
-                            <tr>
-                                <td><i class="fas fa-medal text-secondary"></i> 2</td>
-                                <td>Jane Smith</td>
-                                <td>2300</td>
-                                <td>10</td>
-                                <td>$300</td>
-                            </tr>
-                            <tr>
-                                <td><i class="fas fa-medal text-bronze"></i> 3</td>
-                                <td>Mike Johnson</td>
-                                <td>2100</td>
-                                <td>9</td>
-                                <td>$200</td>
-                            </tr>
-                        </tbody>
-                    </table>
+    <!-- How It Works -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">How It Works</h2>
+            <div class="row">
+                <div class="col-md-4 text-center mb-4">
+                    <i class="fas fa-calendar-alt fa-3x mb-3 text-success"></i>
+                    <h4>Browse Events</h4>
+                    <p>Find eco-friendly events in your area that match your interests.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <i class="fas fa-ticket-alt fa-3x mb-3 text-success"></i>
+                    <h4>Book Tickets</h4>
+                    <p>Reserve your spot at events and get ready to make a difference.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <i class="fas fa-star fa-3x mb-3 text-success"></i>
+                    <h4>Earn Points</h4>
+                    <p>Participate in events to earn points and climb the leaderboard.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Community Section -->
-        <section id="community" class="py-5">
-            <div class="container">
-                <h2 class="text-center mb-4">Join Our Community</h2>
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Share Your Story</h5>
-                                <p class="card-text">Connect with other eco-enthusiasts and share your experiences.</p>
-                                <button class="btn btn-success">Join Discussion</button>
-                            </div>
+    <!-- Newsletter -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for the latest eco-friendly events and tips.</p>
+                    <form class="row g-3 justify-content-center">
+                        <div class="col-md-8">
+                            <input type="email" class="form-control" placeholder="Enter your email">
                         </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Eco Challenges</h5>
-                                <p class="card-text">Participate in weekly challenges and earn bonus points!</p>
-                                <button class="btn btn-success">View Challenges</button>
-                            </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-success w-100">Subscribe</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
-        </section>
-
-        <!-- Resources Section -->
-        <section id="resources" class="py-5 bg-light">
-            <div class="container">
-                <h2 class="text-center mb-4">Educational Resources</h2>
-                <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Sustainability Guides</h5>
-                                <p class="card-text">Learn about sustainable living practices and tips.</p>
-                                <a href="#" class="btn btn-success">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Video Tutorials</h5>
-                                <p class="card-text">Watch educational videos on environmental topics.</p>
-                                <a href="#" class="btn btn-success">Watch Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Eco Tips</h5>
-                                <p class="card-text">Daily tips for reducing your environmental impact.</p>
-                                <a href="#" class="btn btn-success">Get Tips</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="bg-dark text-light py-4">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <h5>About EcoEvents</h5>
-                    <p>Join our mission to create a sustainable future through community engagement and environmental action.</p>
+                    <p>Connecting eco-conscious individuals through sustainable events and activities.</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <h5>Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-light">Events</a></li>
-                        <li><a href="#" class="text-light">Leaderboard</a></li>
-                        <li><a href="#" class="text-light">Community</a></li>
-                        <li><a href="#" class="text-light">Resources</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="leaderboard.html">Leaderboard</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="resources.html">Resources</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <h5>Connect With Us</h5>
                     <div class="social-links">
-                        <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 EcoEvents. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -246,7 +199,7 @@
                             <label for="loginPassword" class="form-label">Password</label>
                             <input type="password" class="form-control" id="loginPassword" required>
                         </div>
-                        <button type="submit" class="btn btn-success">Login</button>
+                        <button type="submit" class="btn btn-success w-100">Login</button>
                     </form>
                 </div>
             </div>
@@ -279,14 +232,16 @@
                             <label for="confirmPassword" class="form-label">Confirm Password</label>
                             <input type="password" class="form-control" id="confirmPassword" required>
                         </div>
-                        <button type="submit" class="btn btn-success">Register</button>
+                        <button type="submit" class="btn btn-success w-100">Register</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
     <script src="script.js"></script>
 </body>
-</html> 
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - EcoEvents</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-leaf"></i> EcoEvents</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="events.html">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="leaderboard.html">Leaderboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resources.html">Resources</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-light me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+                    <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Events Header -->
+    <header class="bg-light py-5">
+        <div class="container">
+            <h1 class="text-center mb-4">Eco-Friendly Events</h1>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search events...">
+                        <button class="btn btn-success" type="button">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Events Content -->
+    <main class="py-5">
+        <div class="container">
+            <!-- Filters -->
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <select class="form-select">
+                        <option selected>Event Type</option>
+                        <option>Tree Planting</option>
+                        <option>Beach Cleanup</option>
+                        <option>Workshop</option>
+                        <option>Recycling Drive</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select">
+                        <option selected>Date Range</option>
+                        <option>This Week</option>
+                        <option>This Month</option>
+                        <option>Next Month</option>
+                        <option>All Upcoming</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select">
+                        <option selected>Location</option>
+                        <option>Near Me</option>
+                        <option>All Locations</option>
+                        <option>Virtual Events</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select">
+                        <option selected>Difficulty Level</option>
+                        <option>Beginner</option>
+                        <option>Intermediate</option>
+                        <option>Advanced</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Events Grid -->
+            <div class="row">
+                <!-- Event 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Tree Planting">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Tree Planting</span>
+                            <h5 class="card-title">Community Tree Planting</h5>
+                            <p class="card-text">Join us for a day of tree planting and environmental education.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-calendar"></i> June 15, 2024</li>
+                                <li><i class="fas fa-map-marker-alt"></i> Central Park</li>
+                                <li><i class="fas fa-users"></i> 20 spots left</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button class="btn btn-success">Register</button>
+                                <span class="text-muted">Points: 100</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Beach Cleanup">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Beach Cleanup</span>
+                            <h5 class="card-title">Beach Cleanup Drive</h5>
+                            <p class="card-text">Help us keep our beaches clean and protect marine life.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-calendar"></i> June 20, 2024</li>
+                                <li><i class="fas fa-map-marker-alt"></i> Beachfront Park</li>
+                                <li><i class="fas fa-users"></i> 15 spots left</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button class="btn btn-success">Register</button>
+                                <span class="text-muted">Points: 150</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Workshop">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Workshop</span>
+                            <h5 class="card-title">Sustainable Living Workshop</h5>
+                            <p class="card-text">Learn practical tips for reducing your carbon footprint.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-calendar"></i> June 25, 2024</li>
+                                <li><i class="fas fa-map-marker-alt"></i> Community Center</li>
+                                <li><i class="fas fa-users"></i> 30 spots left</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button class="btn btn-success">Register</button>
+                                <span class="text-muted">Points: 80</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 4 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Recycling">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Recycling Drive</span>
+                            <h5 class="card-title">E-Waste Recycling Event</h5>
+                            <p class="card-text">Properly dispose of electronic waste and learn about recycling.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-calendar"></i> July 1, 2024</li>
+                                <li><i class="fas fa-map-marker-alt"></i> Recycling Center</li>
+                                <li><i class="fas fa-users"></i> Unlimited spots</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button class="btn btn-success">Register</button>
+                                <span class="text-muted">Points: 120</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 5 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Garden">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Gardening</span>
+                            <h5 class="card-title">Community Garden Workshop</h5>
+                            <p class="card-text">Learn to grow your own food sustainably.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-calendar"></i> July 5, 2024</li>
+                                <li><i class="fas fa-map-marker-alt"></i> Community Garden</li>
+                                <li><i class="fas fa-users"></i> 25 spots left</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button class="btn btn-success">Register</button>
+                                <span class="text-muted">Points: 90</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 6 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Bike">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Transportation</span>
+                            <h5 class="card-title">Bike to Work Day</h5>
+                            <p class="card-text">Join the community in promoting sustainable transportation.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-calendar"></i> July 10, 2024</li>
+                                <li><i class="fas fa-map-marker-alt"></i> City Center</li>
+                                <li><i class="fas fa-users"></i> Unlimited spots</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button class="btn btn-success">Register</button>
+                                <span class="text-muted">Points: 70</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <nav aria-label="Page navigation" class="mt-4">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About EcoEvents</h5>
+                    <p>Join our mission to create a sustainable future through community engagement and environmental action.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="events.html" class="text-light">Events</a></li>
+                        <li><a href="leaderboard.html" class="text-light">Leaderboard</a></li>
+                        <li><a href="community.html" class="text-light">Community</a></li>
+                        <li><a href="resources.html" class="text-light">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Connect With Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-success">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="registerName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="registerName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="registerEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="registerPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-success">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
