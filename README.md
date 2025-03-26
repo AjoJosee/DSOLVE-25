@@ -5,9 +5,9 @@
 
 **Team Members:**
 - AJO JOSE
-- AjoJosee(https://github.com/AjoJosee) - Role/Contribution
+- [AjoJosee](https://github.com/AjoJosee) - Frontend
 - JOHANN THOMAS
-- [Member 2's Github](https://github.com/username) - Role/Contribution
+- [theflawlesserror](https://github.com/theflawlesserror) - Backend
 
 ## 💡 Project Idea
 [A clear, concise 2-3 sentence description of your project's purpose and value proposition]
@@ -62,6 +62,6 @@ We welcome contributions! Here are some ways you can help:
 
 
 ## Acknowledgments
-- [Inspiration source 1]
+- We did most of the code in [cursor]cursor.com
 - [Library/framework documentation]
 - [Team members/mentors]
