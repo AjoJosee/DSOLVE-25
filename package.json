@@ -1,27 +1,24 @@
 {
-  "name": "dsolve-25",
+  "name": "ecoevents",
   "version": "1.0.0",
-  "description": "Hackathon project",
+  "description": "Eco-friendly events platform",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --mode development",
     "build": "webpack --mode production",
-    "start": "webpack serve --mode development"
+    "server": "cd backend && npm run dev"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/theflawlesserror/DSOLVE-25.git"
+  "dependencies": {
+    "bootstrap": "^5.3.0",
+    "@fortawesome/fontawesome-free": "^6.0.0"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
-  "bugs": {
-    "url": "https://github.com/theflawlesserror/DSOLVE-25/issues"
-  },
-  "homepage": "https://github.com/theflawlesserror/DSOLVE-25#readme",
   "devDependencies": {
-    "webpack": "^5.98.0",
-    "webpack-cli": "^5.0.1"
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "html-webpack-plugin": "^5.5.3",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3"
   }
 }
